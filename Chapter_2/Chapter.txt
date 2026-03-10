@@ -1,0 +1,19 @@
+"Chapter_2" SELECT and display results
+
+in this chapter, we learn how to get data from the database and show it on our page.
+
+require 'connexion.php' .. we use this to include the connection file we made before so we don't have to write the connection code again.
+
+$sql = "SELECT * FROM Utilisateur" .. this is the SQL command to get all the data from the table named "Utilisateur".
+
+$stmt = $pdo->query($sql) .. we use query() to send our SQL command to the server.
+
+$utilisateurs = $stmt->fetchAll(PDO::FETCH_ASSOC) .. fetchAll() gets all the rows from the result and puts them in an array. FETCH_ASSOC means we can use the column names (like 'nom' or 'email') to get the data.
+
+foreach ($utilisateurs as $user) .. we use a loop to go through every user in the array and display their information.
+
+<table> .. we use HTML table tags to show the data in a clean way with columns and rows.
+
+htmlspecialchars() .. we use this for security to make sure the data from the database doesn't break our HTML if it has special characters.
+
+if there is an error in the query, the catch block will display the error message.
