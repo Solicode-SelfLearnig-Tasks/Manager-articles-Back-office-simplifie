@@ -1,0 +1,19 @@
+Chapter 5: Prepared Statements
+
+In this chapter, I learned how to make my database safe from hackers (SQL Injections).
+
+Key things to remember:
+
+1. Why use it?
+If we put variables directly into the SQL command, a hacker can change our database. Prepared statements separate the command from the data.
+
+2. Simple steps:
+- Use prepare() to tell SQL what we want to do using fillers (:name).
+- Use execute() or bindParam() to give the real values.
+
+3. Difference between bindParam and execute:
+- execute(['name' => $name]): The easiest and fastest way.
+- bindParam(':name', $nom): Used when we want to link a variable and change its value just before running the command.
+
+Conclusion:
+Never use variables directly in $pdo->query(). Always use prepare()!
