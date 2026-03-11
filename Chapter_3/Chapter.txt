@@ -1,0 +1,22 @@
+"Chapter_3" INSERT, UPDATE and DELETE
+
+In this chapter, we learn how to change the data in our database using "Prepared Statements" for security.
+
+prepare() .. we use this to prepare the SQL command before sending it. It is safer because it prevents SQL Injection.
+
+execute() .. we use this to run the prepared command with the real data.
+
+INSERT INTO .. we use this to add a new row of data. 
+Example: INSERT INTO Utilisateur (nom, email) VALUES (:nom, :email)
+
+UPDATE .. we use this to change data that is already in the table.
+Example: UPDATE Utilisateur SET email = :email WHERE id = :id
+
+DELETE .. we use this to remove a row from the table.
+Example: DELETE FROM Utilisateur WHERE id = :id
+
+rowCount() .. this function tells us how many rows were changed by our command. If it returns 1, it means 1 row was added, changed, or deleted.
+
+lastInsertId() .. this is used to get the ID of the last row we just inserted.
+
+In this chapter, we use ":name" (placeholders) in our SQL and then we give the real values in an array inside execute(). This is the best way to keep our database safe.
