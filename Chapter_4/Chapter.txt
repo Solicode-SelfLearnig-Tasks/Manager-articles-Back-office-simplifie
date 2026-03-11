@@ -1,0 +1,18 @@
+Chapter_4 Gérer les erreurs avec try/catch et exceptions PDO
+
+In this chapter, we learn how to handle errors safely when working with a database using PDO.
+
+try { ... } catch (PDOException $e) { ... } .. we use this structure to "try" running our code. If an error happens, the "catch" block catches it so the program doesn't crash.
+
+PDO::ATTR_ERRMODE .. an attribute that tells PDO how to handle errors.
+
+PDO::ERRMODE_EXCEPTION .. we set the error mode to this so that PDO throws an "exception" whenever a database error occurs. This allows us to catch errors in the "catch" block.
+
+$e->getMessage() .. this function gives us the specific message describing what went wrong (example: "Access denied" or "Table not found").
+
+setAttribute() .. we use this to configure PDO settings, like the error mode.
+
+Why use this?
+1. Better Security: We can hide technical error details from hackers and show a simple "An error occurred" message instead.
+2. Debugging: We can record errors in a log file (erreurs.log) using file_put_contents() to see what went wrong later.
+3. Reliability: Our application won't show a blank page or a weird PHP error; we control what the user sees.
