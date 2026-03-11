@@ -1,0 +1,20 @@
+Chapter 6: Security Best Practices
+
+In this chapter, I learned how to handle data safely to keep my application secure.
+
+Key things to remember:
+
+1. Clean the data:
+- Use trim() to remove extra spaces.
+- Use htmlspecialchars() to stop XSS attacks (cleaning HTML tags).
+- Use filter_var() to check if an email is real.
+
+2. Hide errors from users:
+- Don't show technical error messages to the user.
+- Instead, save the real error in a file (errors.log) and show a simple "Something went wrong" message.
+
+3. Limit Database rights:
+- Use a database user that only has the rights they need (like SELECT, INSERT).
+
+Conclusion:
+Security is about checking everything the user sends and never trusting raw data!
